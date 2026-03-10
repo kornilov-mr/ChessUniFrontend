@@ -1,0 +1,1 @@
+export enum PieceColorEnum {Black="black", White="white" }

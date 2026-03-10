@@ -1,23 +1,30 @@
-# Getting Started with Create React App
+# Chess Uni Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+The project is a frontend part for chess, which was script from the backend part for an internship project.
+The project is created using React and vite bandle.
 
-## Available Scripts
+Consists of:
+* Logic for the game of chess inside the *src/board* folder
+* 56 tests for the game logic, including unit tests and integration tests, to verify different game positions and moves
+* UI components for the playing board (taken from my previous project)
+
+UI Components are located in the *src/UI/board* folder. 
+
+The project is using the scss as well as css modules for styling, and more interesting case study on how they relate to the elements
+
+
+## How to run
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Runs the app in the development mode
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
@@ -27,20 +34,28 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How scss and css get compiled
 
-### `npm run eject`
+First the scss and css files are given. They need to be compiled to css. files, which would be used in the browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Steps:
+* Scss files are compiled to css files using the scss compiler (because scss isn't supported in the browser and is just a language to generate the css files with better development experience)
+* Then the css files are processed by the PostCSS (which is resposible for optimization, compatibility with different browsers, Autoprefixes, etc.)
+* css files are bundled into one css file using the css-loader (In the case of this project, the vite css-loader is used to bundle the css files into one file)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+That creates one css file used by the browser, as well as css maps, which are used to keep track of the original scss files and the line numbers.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How to get the final css file and the css map
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+It's in the root folder of the project:
+* [OutputCss.css](OutputCss.css)
+* [OutputCssMap.css.map](OutputCssMap.css.map)
 
-## Learn More
+Or you could generate the new one by 
+running the build command, and find the css file in the build folder *build/static/css*.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Also, scss can be transformed to css by running the command:
+### `npx sass src/UI/board/BoardStyling.scss src/UI/board/BoardStyling.css`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+
