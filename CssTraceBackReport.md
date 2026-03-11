@@ -1,17 +1,17 @@
 ## CSS BackReport.
 
-I have tried to use as many different css rules and scss features as possible to demonstrate various cases.
+I have tried to use as many different CSS rules and scss features as possible to demonstrate various cases.
 
 ## Element for inspection.
 
-&lt;div class="square light " data-piece="blackKn" is-under-check="false"><span class="piece" data-color="black">
+&lt;div class="square light "data-piece="blackKn" is-under-check="false"><span class="piece" data-color="black">
 
 
 The chosen element is the div, which represents the one light square, with a black king on it.
 
-The most important css rule is the one with the class="square light ", because it is responsible for the color of the square, as well as for the layout.
+The most important CSS rule is the one with the class="square light ", because it is responsible for the color of the square, as well as for the layout.
 
-## Proporties
+## Properties
 * ### First property:
 *display* - display:flex.
 
@@ -32,7 +32,7 @@ In the original that's:
     @include flex-center;
 }
 ```
-@display:flex comes from the mixin expansion, and might be hard to trace back automatically, because it's indirect, more about that in the next chapter.
+@display:flex comes from the mixin expansion and might be hard to trace back automatically, because it's indirect, more about that in the next chapter.
 * ### Second property:
 *background-color* - center:
 The case is almost identical to the first one,
@@ -147,4 +147,4 @@ The selector did not exist in the source exactly like that.
 It was constructed during compilation, so mapping is not 1-to-1.
     
 ## Conclusion
-The most of the problems comes from scss features, because is scss in compiled to the css. These transformation is obviously can't be one to one. and requires more complex mapping based to the scss syntax and parsing, especially if we want to include trace backs to the IDEA.
+Most of the problems come from scss features, because is scss in compiled to the CSS. These transformations obviously can't be one by one. and requires more complex mapping based on the scss syntax and parsing, especially if we want to include trace backs to the IDEA.
